@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="main2.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+</head>
+
+<body >
+
+<head>
+    <script src="{{=URL('static','js/controlefinanciamento.js')}}" defer></script>
+</head>
+
+<body>
+  <div class="py-1" >
+    <div class="container">
+      <div class="row  text-center">
+        <div class="col-md-12">
+          <h1 class="mb-3">Tabela de Financiamento</h1>
+          <p>Os juros são calculados encima do débido e retirado da parcela, o restante é amortizado no debito formando o débito final</p>
+        </div>
+      </div>
+      <div class="row" id="formulario">
+        <div class="mx-auto col-md-8">
+          <div class="card">
+            <div class="card-header">
+              <h3> Gerar Tabela de Financiamento </h3>
+            </div>
+            <div class="card-body">
+              <form class="">
+                <div class="form-group"> <label>Nº de meses:</label>
+                  <input type="number" class="form-control" required="required" id="numeroParcelas" placeholder="Numero de Períodos">
+                </div>
+                <div class="form-group"> <label>Taxa de juros mensal:</label>
+                  <input type="number" class="form-control" required="required" id="taxaJuros" placeholder="Taxa de Juro do Período">
+                </div>
+                <!-- <div class="form-group"> <label>Valor da prestação:</label>
+                  <input type="number" class="form-control" placeholder="Valor da Prestação">
+                  <small class="form-text text-muted">(Considera-se que a 1a. prestação não seja no ato.)</small>
+                </div> -->
+                <div class="form-group"> <label>Valor financiado: </label>
+                  <input type="number" class="form-control" required="required" id="valorPresente" placeholder="Valor Financiado">
+                  <small class="form-text text-muted">(O Valor financiado não inclui o valor da entrada.)</small>
+                </div>
+                <a  id="calcular" class="btn btn-primary mx-1">Calcular</a>
+                <!-- <a  id="limpar" class="btn btn-primary mx-1">Limpar</a> -->
+              </form>
+              <p>(Informe 3 valores e pressione o botão ‘Calcular’ para obter a tabela.)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-none" id="tabela">
+        <div class="col-md-12 pt-3">
+          <div class="table-responsive">
+            <table class="table" id="tabela">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Período</th>
+                  <th>Débito Inicial</th>
+                  <th>Parcela</th>
+                  <th>Juro</th>
+                  <th>Abatimento</th>
+                  <th>Débito Final</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>R$ 0,00</td>
+                  <td>R$ 0,00</td>
+                  <td>R$ 0,00</td>
+                  <td>R$ 0,00</td>
+                  <td>R$ 0,00</td>
+                </tr>
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+            <a  id="limpar" class="btn btn-primary mx-1">Limpar</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
